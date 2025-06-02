@@ -1,9 +1,17 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import CardList from '../components/CardList.vue'
+
+const routes = [
+  {
+    path: '/cardlist',
+    name: 'CardList',
+    component: CardList,
+  },
+]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes: [
-  ],
+  history: createWebHistory(),
+  routes,
 })
 
 export default router
