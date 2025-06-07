@@ -1,50 +1,21 @@
 <script setup>
-import { ref, watch } from 'vue'
-import { useSearchStore } from '../stores/searchStore'
+import { useCardData } from '../data/cardData' // Adjust the path as needed
 
-const searchStore = useSearchStore()
-const cards = ref([])
-
-watch(
-  () => searchStore.selectedSeries,
-  async () => {
-    let apiUrl = `https://raw.githubusercontent.com/yyanoo/test/main/${searchStore.selectedSeries}.json`
-
-    try {
-      const res = await fetch(apiUrl)
-      const data = await res.json()
-      cards.value = data
-    } catch (e) {
-      console.error('載入 JSON 失敗', e)
-      cards.value = []
-    }
-  },
-  { immediate: true },
-)
+const { cards } = useCardData()
 </script>
 
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center mb-3">
     <div class="card-item" v-for="(card, index) in cards" :key="index">
       <!-- Modal -->
-      <div
-        class="modal fade"
-        :id="'modal' + index"
-        aria-hidden="true"
-        :aria-labelledby="'label-modal' + index"
-        tabindex="-1"
-      >
+      <div class="modal fade" :id="'modal' + index" aria-hidden="true" :aria-labelledby="'label-modal' + index"
+        tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
           <div class="modal-content">
             <div class="container">
               <div class="text-content">
                 <div class="destop-button-container">
-                  <button
-                    type="button"
-                    class="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    id="b1"
-                  ></button>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" id="b1"></button>
                 </div>
 
                 <h1>{{ card.卡名 }}</h1>
@@ -63,12 +34,7 @@ watch(
 
       <!-- 卡片顯示 -->
       <div class="container card_container">
-        <img
-          :src="card.圖"
-          :data-bs-target="'#modal' + index"
-          data-bs-toggle="modal"
-          class="card-img"
-        />
+        <img :src="card.圖" :data-bs-target="'#modal' + index" data-bs-toggle="modal" class="card-img" />
         <h1 class="text-center card-id">{{ card.卡號 }}</h1>
         <h2 class="text-center card-text">{{ card.卡名 }}</h2>
       </div>
@@ -84,6 +50,7 @@ watch(
   margin-left: 200px;
   margin-right: 200px;
 }
+
 .card_container {
   flex-direction: column;
   align-items: center;
@@ -110,6 +77,7 @@ watch(
   white-space: normal;
   overflow-wrap: break-word;
 }
+
 .card-id {
   margin: 5px;
   font-size: 0.8em;
@@ -182,9 +150,11 @@ li {
     width: 90%;
     margin-bottom: 20px;
   }
+
   img {
     padding-top: 20px;
   }
+
   .text-content {
     padding: 0px;
   }
