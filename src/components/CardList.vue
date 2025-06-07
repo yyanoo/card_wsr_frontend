@@ -65,7 +65,7 @@ cards.value.forEach(card => {
 
 <style scoped>
 .rotate {
-  transform: rotate(90deg) translateX(40px) translateY(-10px);
+  transform: rotate(90deg) translateX(40px);
   width: 140% !important;
   margin-bottom: 83px !important;
 }
