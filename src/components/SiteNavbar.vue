@@ -11,7 +11,7 @@ function goHome() {
 <template>
   <nav class="navbar fixed-top text-bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-bg-dark" href="#">卡片搜尋器</a>
+      <a class="navbar-brand text-bg-dark" href="#" @click="goHome">卡片搜尋器</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -41,7 +41,7 @@ function goHome() {
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header text-bg-dark">
-          <h5 class="offcanvas-title" @click="goHome">卡片搜尋器</h5>
+          <h5 class="offcanvas-title">卡片搜尋器</h5>
           <button
             type="button"
             class="btn-close btn-close-white"
