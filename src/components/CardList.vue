@@ -18,14 +18,14 @@ const { cards } = useCardData()
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" id="b1"></button>
                 </div>
 
-                <h1>{{ card.卡名 }}</h1>
-                <p>{{ card.卡號 }}</p>
+                <h1>{{ card.name }}</h1>
+                <p>{{ card.id }}</p>
                 <ul>
-                  <li v-for="(skill, idx) in card.效果" :key="idx">{{ skill }}</li>
+                  <li v-for="(skill, idx) in card.effect" :key="idx">{{ skill }}</li>
                 </ul>
               </div>
               <div class="image-container">
-                <img :src="card.圖" :alt="card.卡名" />
+                <img :src="card.picture" :alt="card.name" />
               </div>
             </div>
           </div>
@@ -35,8 +35,8 @@ const { cards } = useCardData()
       <!-- 卡片顯示 -->
       <div class="container card_container">
         <img :src="card.圖" :data-bs-target="'#modal' + index" data-bs-toggle="modal" class="card-img" />
-        <h1 class="text-center card-id">{{ card.卡號 }}</h1>
-        <h2 class="text-center card-text">{{ card.卡名 }}</h2>
+        <h1 class="text-center card-id">{{ card.id }}</h1>
+        <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>
     </div>
   </div>
