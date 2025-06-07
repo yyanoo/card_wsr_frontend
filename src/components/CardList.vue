@@ -1,13 +1,35 @@
 <script setup>
-import { useCardData } from '../data/cardData' // Adjust the path as needed
+import { onMounted, nextTick, ref } from 'vue' // 引入 ref
+import { useCardData } from '../data/cardData'
 
 const { cards } = useCardData()
+
+onMounted(async () => {
+  await nextTick() // 等待 DOM 渲染
+
+});
+
+function checkRotateOnLoad(event, card) {
+  const img = event.target;
+  if (img.naturalWidth > img.naturalHeight) {
+    card.isRotated = true;
+  } else {
+    card.isRotated = false;
+  }
+}
+
+cards.value.forEach(card => {
+  if (!('isRotated' in card)) {
+    card.isRotated = false;
+  }
+
+});
+
 </script>
 
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center mb-3">
     <div class="card-item" v-for="(card, index) in cards" :key="index">
-      <!-- Modal -->
       <div class="modal fade" :id="'modal' + index" aria-hidden="true" :aria-labelledby="'label-modal' + index"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -17,7 +39,6 @@ const { cards } = useCardData()
                 <div class="destop-button-container">
                   <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" id="b1"></button>
                 </div>
-
                 <h1>{{ card.name }}</h1>
                 <p>{{ card.id }}</p>
                 <ul>
@@ -32,9 +53,9 @@ const { cards } = useCardData()
         </div>
       </div>
 
-      <!-- 卡片顯示 -->
       <div class="container card_container">
-        <img :src="card.picture" :data-bs-target="'#modal' + index" data-bs-toggle="modal" class="card-img" />
+        <img :src="card.picture" :data-bs-target="'#modal' + index" data-bs-toggle="modal" class="card-img"
+          :class="{ rotate: card.isRotated }" @load="checkRotateOnLoad($event, card)" />
         <h1 class="text-center card-id">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>
@@ -42,7 +63,13 @@ const { cards } = useCardData()
   </div>
 </template>
 
-<style>
+<style scoped>
+.rotate {
+  transform: rotate(90deg) translateX(40px) translateY(-10px);
+  width: 140% !important;
+  margin-bottom: 83px !important;
+}
+
 .search-container {
   display: flex;
   justify-content: center;
@@ -64,7 +91,6 @@ const { cards } = useCardData()
 }
 
 .card-img {
-  max-width: 200px;
   margin-bottom: 5px;
   cursor: pointer;
 }
@@ -106,7 +132,6 @@ const { cards } = useCardData()
 }
 
 .image-container {
-  width: 400px;
   order: 1;
 }
 
@@ -162,6 +187,9 @@ li {
   #b1 {
     margin: 0px;
     transform: translate(-15px, 15px);
+  }
+  .rotate {
+    transform:  rotate(90deg) translateX(50px) translateY(-10px);
   }
 }
 </style>
