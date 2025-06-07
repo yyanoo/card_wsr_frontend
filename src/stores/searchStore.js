@@ -3,7 +3,7 @@ import { watch } from "vue";
 
 export const useSearchStore = defineStore("search", {
   state: () => ({
-    selectedSeries: "/", // 對應 <select> 的 v-model
+    selectedSeries: "/", // 對應 appvue <select> 的 v-model
   }),
   actions: {
     reset() {

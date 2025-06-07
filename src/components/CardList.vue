@@ -5,7 +5,6 @@ import { useSearchStore } from '../stores/searchStore'
 const searchStore = useSearchStore()
 const cards = ref([])
 
-// 根據 selectedSeries，從 API 抓資料
 watch(
   () => searchStore.selectedSeries,
   async () => {
