@@ -3,7 +3,7 @@ import CardList from '../components/CardList.vue'
 
 const routes = [
   {
-    path: '/cardlist',
+    path: '/cardlist/:series',
     name: 'CardList',
     component: CardList,
   },

@@ -1,7 +1,6 @@
 <script>
 import { useSearchStore } from './stores/searchStore'
 import SiteNavbar from './components/SiteNavbar.vue'
-import { watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default {
@@ -12,14 +11,7 @@ export default {
     const searchStore = useSearchStore()
     const router = useRouter()
 
-    watch(
-      () => searchStore.selectedSeries,
-      (newVal) => {
-        if (newVal != '/') {
-          router.push('/cardlist')
-        }
-      },
-    )
+    searchStore.setupSeriesWatcher(router);
 
     return { searchStore }
   },

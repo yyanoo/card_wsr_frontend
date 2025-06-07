@@ -8,23 +8,11 @@ const cards = ref([])
 // 根據 selectedSeries，從 API 抓資料
 watch(
   () => searchStore.selectedSeries,
-  async (newVal) => {
-    let apiUrl = ''
-
-    if (newVal === 'os01') {
-      apiUrl = 'https://raw.githubusercontent.com/yyanoo/test/main/cards01.json' // json-server 的 API 地址，換成你的線上 API 也行
-    } else if (newVal === 'os02') {
-      apiUrl = 'https://raw.githubusercontent.com/yyanoo/test/main/cards02.json'
-    }
-
-    if (!apiUrl) {
-      cards.value = []
-      return
-    }
+  async () => {
+    let apiUrl = `https://raw.githubusercontent.com/yyanoo/test/main/${searchStore.selectedSeries}.json`
 
     try {
       const res = await fetch(apiUrl)
-      if (!res.ok) throw new Error('Network response not ok')
       const data = await res.json()
       cards.value = data
     } catch (e) {

@@ -1,5 +1,6 @@
 <script setup>
 import { useSearchStore } from '../stores/searchStore'
+
 const searchStore = useSearchStore()
 
 function goHome() {
@@ -40,7 +41,7 @@ function goHome() {
         aria-labelledby="offcanvasNavbarLabel"
       >
         <div class="offcanvas-header text-bg-dark">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">卡片搜尋器</h5>
+          <h5 class="offcanvas-title" @click="goHome">卡片搜尋器</h5>
           <button
             type="button"
             class="btn-close btn-close-white"
