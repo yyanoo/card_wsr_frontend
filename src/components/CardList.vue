@@ -37,7 +37,7 @@ cards.value.forEach(card => {
             <div class="container">
               <div class="text-content">
                 <div class="destop-button-container">
-                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" id="b1"></button>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" id="button"></button>
                 </div>
                 <h1>{{ card.name }}</h1>
                 <p>{{ card.id }}</p>
@@ -151,7 +151,7 @@ li {
   font-size: 1em;
 }
 
-#b1 {
+#button {
   display: block;
   position: absolute;
   margin: 20px;
@@ -184,7 +184,7 @@ li {
     padding: 0px;
   }
 
-  #b1 {
+  #button {
     margin: 0px;
     transform: translate(-15px, 15px);
   }
