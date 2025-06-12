@@ -20,7 +20,6 @@ export const useSearchStore = defineStore("search", {
           if (newVal !== "/") {
             router.push(`/cardlist/${newVal}`);
           }
-          console.log(newVal)
         }
       );
     },
