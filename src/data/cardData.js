@@ -1,9 +1,9 @@
 import { ref, watch } from "vue";
-import { useSearchStore } from "../stores/searchStore";
+import { useRoute } from "vue-router";
 import { getCard } from "../service/api";
 
 export function useCardData() {
-  const searchStore = useSearchStore();
+  const route = useRoute();
   const cards = ref([]);
 
   const fetchCards = async (series) => {
@@ -17,7 +17,7 @@ export function useCardData() {
   };
 
   watch(
-    () => searchStore.selectedSeries,
+    () => route.params.series,
     (newSeries) => {
       if (newSeries) {
         fetchCards(newSeries);

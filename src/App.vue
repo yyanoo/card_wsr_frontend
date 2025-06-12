@@ -23,7 +23,7 @@ export default {
     <SiteNavbar />
     <router-view />
   </div>
-  <div v-if="searchStore.selectedSeries == '/'" class="main-container">
+  <div v-if="searchStore.selectedSeries === '/'" class="main-container">
     <h5 class="main-text text-light">WSR搜尋網頁</h5>
     <div class="search-box-title">
       <select class="form-select text-light" v-model="searchStore.selectedSeries">

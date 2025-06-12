@@ -6,12 +6,13 @@ export const useSearchStore = defineStore("search", {
     selectedSeries: "/", // 對應 appvue <select> 的 v-model
   }),
   actions: {
-    reset() {
+    reset() { 
       this.selectedSeries = "/";
     },
     setSeries(value) {
       this.selectedSeries = value;
     },
+
     setupSeriesWatcher(router) {
       watch(
         () => this.selectedSeries,

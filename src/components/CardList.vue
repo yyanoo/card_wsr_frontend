@@ -1,13 +1,8 @@
 <script setup>
-import { onMounted, nextTick, ref } from 'vue' // 引入 ref
+import { onMounted, nextTick, ref } from 'vue'
 import { useCardData } from '../data/cardData'
 
 const { cards } = useCardData()
-
-onMounted(async () => {
-  await nextTick() // 等待 DOM 渲染
-
-});
 
 function checkRotateOnLoad(event, card) {
   const img = event.target;
@@ -46,17 +41,17 @@ cards.value.forEach(card => {
                 </ul>
               </div>
               <div class="image-container">
-                <img :src="card.picture" :alt="card.name" />
+                <img class="box-img" :src="card.picture" :alt="card.name" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container card_container">
+      <div class="container card_container" :class="{ rotateBox: !card.isRotated }">
         <img :src="card.picture" :data-bs-target="'#modal' + index" data-bs-toggle="modal" class="card-img"
           :class="{ rotate: card.isRotated }" @load="checkRotateOnLoad($event, card)" />
-        <h1 class="text-center card-id">{{ card.id }}</h1>
+        <h1 class="text-center card-id" :class="{ imgRotateText: card.isRotated }">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>
     </div>
@@ -171,12 +166,34 @@ li {
     padding-bottom: 0px;
   }
 
+  .imgRotateText {
+    transform: translateY(-15px);
+  }
+
+  .card_container {
+    max-width: 160px;
+    padding: 0px;
+  }
+
   .image-container {
     width: 90%;
     margin-bottom: 20px;
   }
 
-  img {
+  .rotateBox {
+    padding-bottom: 10px;
+  }
+
+  .card-img {
+    margin: 0;
+    width: 161px;
+  }
+
+  .card-text {
+    display: none;
+  }
+
+  .box-img {
     padding-top: 20px;
   }
 
@@ -188,8 +205,9 @@ li {
     margin: 0px;
     transform: translate(-15px, 15px);
   }
+
   .rotate {
-    transform:  rotate(90deg) translateX(50px) translateY(-10px);
+    transform: rotate(90deg) translateX(37px);
   }
 }
 </style>
