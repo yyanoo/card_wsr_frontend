@@ -3,10 +3,10 @@ import { watch } from "vue";
 
 export const useSearchStore = defineStore("search", {
   state: () => ({
-    selectedSeries: "/", // 對應 appvue <select> 的 v-model
+    selectedSeries: "/",
   }),
   actions: {
-    reset() { 
+    reset() {
       this.selectedSeries = "/";
     },
     setSeries(value) {
@@ -20,6 +20,7 @@ export const useSearchStore = defineStore("search", {
           if (newVal !== "/") {
             router.push(`/cardlist/${newVal}`);
           }
+          console.log(newVal)
         }
       );
     },

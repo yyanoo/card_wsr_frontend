@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted, watch } from 'vue'
 import { useCardData } from '../data/cardData'
 
 const { cards } = useCardData()

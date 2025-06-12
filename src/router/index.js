@@ -1,10 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
 import CardList from "../components/CardList.vue";
+import Home from "../components/Home.vue";
 
 const routes = [
   {
-    path: `/cardlist/:series`,
-    name: "CardList",
+    path: "/",
+    name: "home",
+    component: Home,
+  },
+  {
+    path: "/cardlist",
+    name: "DefaultHome",
+    component: Home,
+    props: true,
+  },
+  {
+    path: "/cardlist/:series",
+    name: "CardListWithSeries",
     component: CardList,
     props: true,
   },

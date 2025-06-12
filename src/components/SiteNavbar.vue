@@ -11,7 +11,7 @@ function goHome() {
 <template>
   <nav class="navbar fixed-top text-bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-bg-dark" href="#" @click="goHome">卡片搜尋器</a>
+      <a class="navbar-brand text-bg-dark" href="/" @click="goHome">卡片搜尋器</a>
       <button
         class="navbar-toggler"
         type="button"
