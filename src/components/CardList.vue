@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted, nextTick, ref } from 'vue'
 import { useCardData } from '../data/cardData'
 
 const { cards } = useCardData()
@@ -23,7 +22,7 @@ cards.value.forEach(card => {
 </script>
 
 <template>
-  <div class="d-flex flex-wrap justify-content-center align-items-center mb-3">
+  <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top">
     <div class="card-item" v-for="(card, index) in cards" :key="index">
       <div class="modal fade" :id="'modal' + index" aria-hidden="true" :aria-labelledby="'label-modal' + index"
         tabindex="-1">
@@ -59,6 +58,10 @@ cards.value.forEach(card => {
 </template>
 
 <style scoped>
+.container-padding-top {
+  padding-top: 15px;
+}
+
 .rotate {
   transform: rotate(90deg) translateX(40px);
   width: 140% !important;
