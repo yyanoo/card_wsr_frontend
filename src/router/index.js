@@ -4,7 +4,7 @@ import Home from "../components/Home.vue";
 
 const routes = [
   {
-    path: "/",
+    path: "/card_wsr_frontend",
     name: "Home",
     component: Home,
   },

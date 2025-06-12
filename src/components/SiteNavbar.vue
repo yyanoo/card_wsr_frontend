@@ -53,13 +53,13 @@ function goHome() {
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item nav-li">
-              <router-link to="/" @click="goHome" class="nav-link">
+              <router-link to="/card_wsr_frontend" @click="goHome" class="nav-link">
                 <div class="text-light">首頁</div>
               </router-link>
             </li>
 
             <li class="nav-item nav-li">
-              <router-link to="/" @click="goHome" class="nav-link"
+              <router-link to="/card_wsr_frontend" @click="goHome" class="nav-link"
                 ><div class="text-light">系列</div></router-link
               >
               <div class="search-box-title">
