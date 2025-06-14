@@ -7,7 +7,7 @@ export function useCardData() {
   const route = useRoute();
   const searchStore = useSearchStore();
   const cards = ref([]);
-
+  //api獲得資料 并且更改selected值
   async function fetchCards(series) {
     try {
       const res = await getCard(series);

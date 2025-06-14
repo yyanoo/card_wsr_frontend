@@ -1,9 +1,9 @@
 <script setup>
-import { onMounted, watch } from 'vue'
 import { useCardData } from '../utils/cardData'
 
 const { cards } = useCardData()
 
+//判斷圖是否需要旋轉
 function checkRotateOnLoad(event, card) {
   const img = event.target;
   if (img.naturalWidth > img.naturalHeight) {
