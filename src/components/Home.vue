@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { useSearchStore } from '../stores/searchStore'
 import { useRouter } from 'vue-router'
 
