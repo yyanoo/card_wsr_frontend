@@ -1,8 +1,8 @@
 @import './base.css';
 
-body {
+html body {
   margin: 0;
-  background-color: #1c1d1f !important;
+  background-color: #1c1d1f;
   color: #fbfbfb;
   font-family: system-ui;
   padding-top: 70px;

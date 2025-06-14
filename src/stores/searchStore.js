@@ -15,10 +15,11 @@ export const useSearchStore = defineStore("search", {
 
     setupSeriesWatcher(router) {
       watch(
+        //seletor 值轉換到 router cardlist/:series
         () => this.selectedSeries,
         (newVal) => {
           if (newVal !== "/") {
-            router.push(`/cardlist/${newVal}`);
+            router.push(`/card_wsr_frontend/cardlist/${newVal}`);
           }
         }
       );

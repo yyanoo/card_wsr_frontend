@@ -8,7 +8,7 @@ export function useCardData() {
   const searchStore = useSearchStore();
   const cards = ref([]);
 
-  const fetchCards = async (series) => {
+  async function fetchCards(series) {
     try {
       const res = await getCard(series);
       cards.value = res.data;
@@ -17,8 +17,9 @@ export function useCardData() {
       console.error("載入卡片資料失敗", err);
       cards.value = [];
     }
-  };
+  }
 
+  //監聽series參數變化 有新參數時候就執行 fetchCards()
   watch(
     () => route.params.series,
     (newSeries) => {

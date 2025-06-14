@@ -9,13 +9,13 @@ const routes = [
     component: Home,
   },
   {
-    path: "/cardlist",
+    path: "/card_wsr_frontend/cardlist",
     name: "DefaultHome",
     component: Home,
     props: true,
   },
   {
-    path: "/cardlist/:series",
+    path: "/card_wsr_frontend/cardlist/:series",
     name: "CardListWithSeries",
     component: CardList,
     props: true,

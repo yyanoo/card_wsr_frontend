@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, watch } from 'vue'
-import { useCardData } from '../data/cardData'
+import { useCardData } from '../utils/cardData'
 
 const { cards } = useCardData()
 
@@ -25,7 +25,7 @@ cards.value.forEach(card => {
 <template>
   <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top">
     <div class="card-item" v-for="(card, index) in cards" :key="index">
-      <div class="modal fade" :id="'modal' + index" aria-hidden="true" :aria-labelledby="'label-modal' + index"
+      <div class="modal fade" :id="'modal' + index" :aria-labelledby="'label-modal' + index"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
           <div class="modal-content">

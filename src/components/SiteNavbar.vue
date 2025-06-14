@@ -84,7 +84,7 @@ function goHome() {
                 <li class="nav-li">
                   <p class="box-text text-light">等級</p>
                   <div class="search-box">
-                    <select class="form-select text-light">
+                    <select class="form-select text-light" v-model="lvlSelect">
                       <option class="text-light" value="">最小</option>
                       <option class="text-light" value="0">0</option>
                       <option class="text-light" value="1">1</option>
