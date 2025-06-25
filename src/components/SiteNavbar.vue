@@ -11,7 +11,7 @@ function goHome() {
 <template>
   <nav class="navbar fixed-top text-bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-bg-dark" href="/" @click="goHome">卡片搜尋器</a>
+      <a class="navbar-brand text-bg-dark" @click="goHome">卡片搜尋器</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <div style="width: 100%; height: 100%; display: block; fill: currentcolor">
