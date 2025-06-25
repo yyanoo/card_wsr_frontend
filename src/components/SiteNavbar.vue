@@ -11,7 +11,7 @@ function goHome() {
 <template>
   <nav class="navbar fixed-top text-bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand text-bg-dark" href="/card_wsr_frontend" @click="goHome">卡片搜尋器</a>
+      <a class="navbar-brand text-bg-dark" href="/" @click="goHome">卡片搜尋器</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -53,13 +53,13 @@ function goHome() {
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item nav-li">
-              <router-link to="/card_wsr_frontend" @click="goHome" class="nav-link">
+              <router-link to="/" @click="goHome" class="nav-link">
                 <div class="text-light">首頁</div>
               </router-link>
             </li>
 
             <li class="nav-item nav-li">
-              <router-link to="/card_wsr_frontend" @click="goHome" class="nav-link"
+              <router-link to="/" @click="goHome" class="nav-link"
                 ><div class="text-light">系列</div></router-link
               >
               <div class="search-box-title">

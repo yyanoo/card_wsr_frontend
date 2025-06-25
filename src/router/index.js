@@ -4,18 +4,18 @@ import Home from "../components/Home.vue";
 
 const routes = [
   {
-    path: "/card_wsr_frontend",
+    path: "/",
     name: "Home",
     component: Home,
   },
   {
-    path: "/card_wsr_frontend/cardlist",
+    path: "/cardlist",
     name: "DefaultHome",
     component: Home,
     props: true,
   },
   {
-    path: "/card_wsr_frontend/cardlist/:series",
+    path: "/cardlist/:series",
     name: "CardListWithSeries",
     component: CardList,
     props: true,

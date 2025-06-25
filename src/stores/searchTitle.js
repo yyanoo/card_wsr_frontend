@@ -19,7 +19,7 @@ export const useSearchTitle = defineStore("search", {
         () => this.selectedSeries,
         (newVal) => {
           if (newVal !== "/") {
-            router.push(`/card_wsr_frontend/cardlist/${newVal}`);
+            router.push(`/cardlist/${newVal}`);
           }
         }
       );
