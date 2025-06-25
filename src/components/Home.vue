@@ -2,7 +2,6 @@
 import { useSearchTitle } from '../stores/searchTitle'
 import { useRouter } from 'vue-router'
 
-
 const searchTitle = useSearchTitle()
 const router = useRouter()
 
