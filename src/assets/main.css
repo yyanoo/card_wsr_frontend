@@ -1,0 +1,64 @@
+@import './base.css';
+
+html body {
+  margin: 0;
+  background-color: #1c1d1f;
+  color: #fbfbfb;
+  font-family: system-ui;
+  padding-top: 70px;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+/*navbar css*/
+.offcanvas-body {
+  background-color: #1c1d1f;
+}
+.mid-text {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+}
+.search-box-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.box-text {
+  margin: 10px;
+}
+
+.navbar-toggler {
+  color: #fbfbfb !important;
+}
+.nav-li {
+  padding-bottom: 16px;
+}
+.nav-link,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show,
+.nav-link:focus,
+.nav-link:hover {
+  color: #fbfbfb !important;
+}
+.dropdown-menu.show {
+  background-color: #212529;
+}
+
+.form-control {
+  background-color: #ffffff60 !important;
+  color: #fbfbfb !important;
+}
+.form-select {
+  background-color: #1c1d1f !important;
+}
