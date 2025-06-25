@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:3000/cards";
+const API_BASE = "https://backend-33mc.onrender.com/cards";
 
 export function searchCards({ id, title, color, lvl }) {
   const params = new URLSearchParams();
