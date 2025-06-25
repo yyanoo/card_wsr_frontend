@@ -1,6 +1,6 @@
 import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { getCard } from "../service/api";
+import { getCardTitle } from "../service/api";
 import { useSearchTitle } from "../stores/searchTitle";
 
 export function useCardData() {
@@ -11,7 +11,7 @@ export function useCardData() {
   //api獲得資料 并且更改selected值
   async function fetchCards(series) {
     try {
-      const res = await getCard(series);
+      const res = await getCardTitle(series);
       cards.value = res.data;
       searchTitle.selectedSeries = series;
       

@@ -19,6 +19,10 @@ searchTitle.setupSeriesWatcher(router);
                 <option class="text-light" value="os02">Os02</option>
             </select>
         </div>
+        <div class="search">
+            <input type="text" v-model="cardId" placeholder="請輸入卡號">
+            <button>asas</button>
+        </div>
     </div>
 </template>
 

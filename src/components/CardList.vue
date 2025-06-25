@@ -162,7 +162,11 @@ li {
   display: none;
   order: 3;
 }
-
+@media (max-width: 1199px) {
+  .image-container img{
+    width: 400px;
+  }
+}
 @media (max-width: 999px) {
   .container {
     flex-direction: column;
