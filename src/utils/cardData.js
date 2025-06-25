@@ -14,6 +14,7 @@ export function useCardData() {
       const res = await getCard(series);
       cards.value = res.data;
       searchTitle.selectedSeries = series;
+      
     } catch (err) {
       console.error("載入卡片資料失敗", err);
       cards.value = [];
