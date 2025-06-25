@@ -1,10 +1,10 @@
 <script setup>
-import { useSearchStore } from '../stores/searchStore'
+import { useSearchTitle } from '../stores/searchTitle'
 
-const searchStore = useSearchStore()
+const searchTitle = useSearchTitle()
 
 function goHome() {
-  searchStore.reset()
+  searchTitle.reset()
 }
 </script>
 
@@ -63,7 +63,7 @@ function goHome() {
                 ><div class="text-light">系列</div></router-link
               >
               <div class="search-box-title">
-                <select class="form-select text-light" v-model="searchStore.selectedSeries">
+                <select class="form-select text-light" v-model="searchTitle.selectedSeries">
                   <option class="text-light" value="/" disabled>請選擇系列</option>
                   <option class="text-light" value="os01">Os01</option>
                   <option class="text-light" value="os02">Os02</option>
@@ -85,7 +85,7 @@ function goHome() {
                   <p class="box-text text-light">等級</p>
                   <div class="search-box">
                     <select class="form-select text-light" v-model="lvlSelect">
-                      <option class="text-light" value="">最小</option>
+                      <option class="text-light" value="" disabled>最小</option>
                       <option class="text-light" value="0">0</option>
                       <option class="text-light" value="1">1</option>
                       <option class="text-light" value="2">2</option>

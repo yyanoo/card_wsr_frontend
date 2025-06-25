@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { watch } from "vue";
 
-export const useSearchStore = defineStore("search", {
+export const useSearchTitle = defineStore("search", {
   state: () => ({
     selectedSeries: "/",
   }),

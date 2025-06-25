@@ -1,21 +1,13 @@
-<script>
-import { useSearchStore } from './stores/searchStore'
+<script setup>
+import { useSearchTitle } from './stores/searchTitle'
 import { useRouter } from 'vue-router'
 import SiteNavbar from './components/SiteNavbar.vue'
 
-export default {
-  components: {
-    SiteNavbar,
-  },
-  setup() {
-    const searchStore = useSearchStore()
-    const router = useRouter()
 
-    searchStore.setupSeriesWatcher(router);
+const searchTitle = useSearchTitle()
+const router = useRouter()
 
-    return { searchStore }
-  },
-}
+searchTitle.setupSeriesWatcher(router);
 
 </script>
 

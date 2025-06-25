@@ -1,23 +1,20 @@
 <script setup>
-import { useSearchStore } from '../stores/searchStore'
+import { useSearchTitle } from '../stores/searchTitle'
 import { useRouter } from 'vue-router'
 
-export default {
-    setup() {
-        const searchStore = useSearchStore()
-        const router = useRouter()
 
-        searchStore.setupSeriesWatcher(router);
+const searchTitle = useSearchTitle()
+const router = useRouter()
 
-        return { searchStore }
-    },
-}
+searchTitle.setupSeriesWatcher(router);
+
 </script>
+
 <template>
-    <div v-if="searchStore.selectedSeries === '/'" class="main-container">
+    <div v-if="searchTitle.selectedSeries === '/'" class="main-container">
         <h5 class="main-text text-light">WSR搜尋網頁</h5>
         <div class="search-box-title">
-            <select class="form-select text-light" v-model="searchStore.selectedSeries">
+            <select class="form-select text-light" v-model="searchTitle.selectedSeries">
                 <option class="text-light" value="/" disabled>請選擇系列</option>
                 <option class="text-light" value="os01">Os01</option>
                 <option class="text-light" value="os02">Os02</option>
@@ -28,17 +25,18 @@ export default {
 
 <style>
 .main-container {
-  display: flex;
-  margin: auto;
-  padding: 20px;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
 }
+
 .search-box-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 20px;
-  width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    width: 80%;
 }
 </style>
