@@ -16,10 +16,9 @@ export const useCardStore = defineStore("card", {
       try {
         const response = await searchCards(params);
         this.cards = response.data;
+        this.loading = false;
       } catch (err) {
         this.error = err.message || "取得資料失敗";
-      } finally {
-        this.loading = false;
       }
     },
 

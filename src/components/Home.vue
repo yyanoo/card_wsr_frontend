@@ -22,11 +22,11 @@ watch(
   { immediate: true } // 初次也執行一次
 )
 
-
 </script>
 
 <template>
-  <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top">
+  <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top"
+    v-if="!cardStore.loading">
     <div class="card-item" v-for="card in cardStore.cards" :key="card.id">
       <div class="modal fade" :id="'modal' + card.id" :aria-labelledby="'label-modal' + card.id" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -43,15 +43,15 @@ watch(
                 </ul>
               </div>
               <div class="image-container">
-                <img class="box-img" v-lazy="card.picture" :alt="card.name" />
+                <img class="box-img" :src="card.picture" :alt="card.name" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container card_container">
-        <img v-lazy="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
+      <div class="container card_container" :class="{ rotateBox: !card.isRotated }">
+        <img :src="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
         <h1 class="text-center card-id">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>
