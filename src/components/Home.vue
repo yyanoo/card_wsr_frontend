@@ -43,7 +43,7 @@ watch(
                 </ul>
               </div>
               <div class="image-container">
-                <img class="box-img" :src="card.picture" :alt="card.name" />
+                <img class="box-img" v-lazy="card.picture" :alt="card.name" />
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@ watch(
       </div>
 
       <div class="container card_container" :class="{ rotateBox: !card.isRotated }">
-        <img :src="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
+        <img v-lazy="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
         <h1 class="text-center card-id">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>

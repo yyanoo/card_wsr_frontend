@@ -40,6 +40,7 @@ function goHome() {
               <router-link to="/" @click="goHome" class="nav-link">
                 <div class="text-light">系列</div>
               </router-link>
+
               <div class="search-box-title">
                 <select class="form-select text-light" v-model="searchStore.selectedTitle">
                   <option class="text-light" value="">請選擇系列</option>
@@ -48,6 +49,12 @@ function goHome() {
                 </select>
               </div>
             </li>
+
+            <div class="input-text">
+              <div class="text-light">首頁</div>
+              <input type="text" placeholder="0000">
+              <button>sasas</button>
+            </div>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -81,6 +88,7 @@ function goHome() {
               </ul>
             </li>
           </ul>
+
         </div>
       </div>
     </div>
