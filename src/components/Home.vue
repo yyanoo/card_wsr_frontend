@@ -50,7 +50,7 @@ watch(
         </div>
       </div>
 
-      <div class="container card_container" :class="{ rotateBox: !card.isRotated }">
+      <div class="container card_container">
         <img v-lazy="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
         <h1 class="text-center card-id">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
