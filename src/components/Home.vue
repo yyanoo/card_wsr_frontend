@@ -41,6 +41,7 @@ watch(
                 <ul>
                   <li v-for="(skill, idx) in card.effect" :key="idx">{{ skill }}</li>
                 </ul>
+                <button class="button-more-data">更多訊息</button>
               </div>
               <div class="image-container">
                 <img class="box-img" :src="card.picture" :alt="card.name" />
