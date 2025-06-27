@@ -44,15 +44,15 @@ watch(
                 <button class="button-more-data">更多訊息</button>
               </div>
               <div class="image-container">
-                <img class="box-img" :src="card.picture" :alt="card.name" />
+                <img class="box-img" v-lazy="card.picture" :alt="card.name" />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="container card_container" :class="{ rotateBox: !card.isRotated }">
-        <img :src="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
+      <div class="container card_container">
+        <img v-lazy="card.picture" :data-bs-target="'#modal' + card.id" data-bs-toggle="modal" class="card-img" />
         <h1 class="text-center card-id">{{ card.id }}</h1>
         <h2 class="text-center card-text">{{ card.name }}</h2>
       </div>
@@ -210,6 +210,11 @@ li {
 
   .rotate {
     transform: rotate(90deg) translateX(37px);
+  }
+
+  .button-more-data {
+    margin-bottom: 10px;
+    transform: translateY(-10px);
   }
 }
 </style>

@@ -120,6 +120,6 @@ const submitsearch = () => {
 }
 
 .card-search-button {
-  margin-left: 10px;
+  margin-left: 0;
 }
 </style>
