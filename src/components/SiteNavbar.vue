@@ -1,11 +1,24 @@
 <script setup>
+import { ref } from "vue";
 import { useSearchStore } from "../stores/searchStore";
 
 const searchStore = useSearchStore()
 
-function goHome() {
+const inputTitle = ref('')
+const inputLvl = ref('')
+const inputColor = ref('')
+
+
+const goHome = () => {
   searchStore.reset()
 }
+
+const submitsearch = () => {
+  searchStore.selectedTitle = inputTitle.value
+  searchStore.selectedLvl = inputLvl.value
+  searchStore.selectedColor = inputColor.value
+}
+
 </script>
 
 <template>
@@ -42,7 +55,7 @@ function goHome() {
               </router-link>
 
               <div class="search-box-title">
-                <select class="form-select text-light" v-model="searchStore.selectedTitle">
+                <select class="form-select text-light" v-model="inputTitle">
                   <option class="text-light" value="">請選擇系列</option>
                   <option class="text-light" value="OS01">OS01</option>
                   <option class="text-light" value="OS02">OS02</option>
@@ -50,11 +63,6 @@ function goHome() {
               </div>
             </li>
 
-            <div class="input-text">
-              <div class="text-light">首頁</div>
-              <input type="text" placeholder="0000">
-              <button>sasas</button>
-            </div>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -64,7 +72,7 @@ function goHome() {
                 <li class="nav-li">
                   <p class="box-text text-light">等級</p>
                   <div class="search-box">
-                    <select class="form-select text-light" v-model="searchStore.selectedLvl">
+                    <select class="form-select text-light" v-model="inputLvl">
                       <option class="text-light" value="">未選</option>
                       <option class="text-light" value="0">0</option>
                       <option class="text-light" value="1">1</option>
@@ -76,7 +84,7 @@ function goHome() {
                 <li class="nav-li">
                   <p class="box-text text-light">顔色</p>
                   <div class="search-box">
-                    <select class="form-select text-light" v-model="searchStore.selectedColor">
+                    <select class="form-select text-light" v-model="inputColor">
                       <option class="text-light" value="">未選</option>
                       <option class="text-light" value="黄">黃</option>
                       <option class="text-light" value="緑">綠</option>
@@ -89,10 +97,29 @@ function goHome() {
             </li>
           </ul>
 
+
+          <div class="input-text" style="padding: 10px 0 0 0;">
+            <button class="card-search-button" @click="submitsearch" data-bs-dismiss="offcanvas">搜尋按鈕</button>
+          </div>
+
         </div>
       </div>
     </div>
   </nav>
 </template>
 
-<style></style>
+<style>
+.card-search,
+.card-search-button {
+  background-color: #0c0d0e;
+  color: white;
+}
+
+.card-search {
+  padding-right: 10px;
+}
+
+.card-search-button {
+  margin-left: 10px;
+}
+</style>
