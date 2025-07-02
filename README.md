@@ -10,6 +10,7 @@
 - 前端：Vue 3, Bootstrap 5, Pinia
 - 後端：Node.js / express
 - API：前端使用 `axios` 對後端 API 進行搜尋請求，API 支援多個搜尋參數（卡片 ID、名稱、顏色、等級）。
+- 資料來源：使用爬蟲將資料整理并且將資料建在 mangodb 使用後端進行資料管理
 
 ## 未來追加功能
 - 日文翻譯中，英
