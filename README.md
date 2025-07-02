@@ -11,5 +11,9 @@
 - 後端：Node.js / express
 - API：前端使用 `axios` 對後端 API 進行搜尋請求，API 支援多個搜尋參數（卡片 ID、名稱、顏色、等級）。
 
+## 未來追加功能
+- 日文翻譯中，英
+- 組牌系統
+
 ## 📦 執行方式
 - https://yyanoo.github.io/card_wsr_frontend/#/
