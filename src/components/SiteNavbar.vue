@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import { useSearchStore } from "../stores/searchStore";
+import { useRouter } from 'vue-router'
 
 const searchStore = useSearchStore()
+const router = useRouter()
 
 const inputTitle = ref('')
 const inputLvl = ref('')
@@ -10,15 +12,15 @@ const inputColor = ref('')
 
 
 const goHome = () => {
-  searchStore.reset()
+  router.push('/')
 }
 
 const submitsearch = () => {
   searchStore.selectedTitle = inputTitle.value
   searchStore.selectedLvl = inputLvl.value
   searchStore.selectedColor = inputColor.value
+  router.push('/card_data')
 }
-
 </script>
 
 <template>
