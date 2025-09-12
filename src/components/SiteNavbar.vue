@@ -1,26 +1,38 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useSearchStore } from "../stores/searchStore";
+import { useCardStore } from "../stores/cardStore";
 import { useRouter } from 'vue-router'
 
 const searchStore = useSearchStore()
+const cardStore = useCardStore()
 const router = useRouter()
 
 const inputTitle = ref('')
-const inputLvl = ref('')
-const inputColor = ref('')
-
 
 const goHome = () => {
   router.push('/')
 }
 
 const submitsearch = () => {
+  searchStore.reset()
   searchStore.selectedTitle = inputTitle.value
-  searchStore.selectedLvl = inputLvl.value
-  searchStore.selectedColor = inputColor.value
   router.push('/card_data')
 }
+
+function filterCards() {
+  cardStore.cards = cardStore.Allcards.filter(card => {
+    const colorMatch = !searchStore.selectedColor || card.color === searchStore.selectedColor;
+    const lvlMatch = !searchStore.selectedLvl || card.lvl === searchStore.selectedLvl;
+    return colorMatch && lvlMatch;
+  });
+}
+
+watch(
+  () => [searchStore.selectedColor, searchStore.selectedLvl],
+  filterCards,
+  { immediate: true }
+);
 </script>
 
 <template>
@@ -65,16 +77,20 @@ const submitsearch = () => {
               </div>
             </li>
 
-            <li class="nav-item dropdown">
+            <div class="input-text" style="padding: 10px 0 0 0;">
+              <button class="card-search-button" @click="submitsearch" data-bs-dismiss="offcanvas">搜尋按鈕</button>
+            </div>
+
+            <li class="nav-item dropdown" style="padding-top: 10px;">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                搜尋器
+                篩選器
               </a>
               <ul class="dropdown-menu">
                 <li class="nav-li">
                   <p class="box-text text-light">等級</p>
                   <div class="search-box">
-                    <select class="form-select text-light" v-model="inputLvl">
+                    <select class="form-select text-light" v-model="searchStore.selectedLvl">
                       <option class="text-light" value="">未選</option>
                       <option class="text-light" value="0">0</option>
                       <option class="text-light" value="1">1</option>
@@ -86,7 +102,7 @@ const submitsearch = () => {
                 <li class="nav-li">
                   <p class="box-text text-light">顔色</p>
                   <div class="search-box">
-                    <select class="form-select text-light" v-model="inputColor">
+                    <select class="form-select text-light" v-model="searchStore.selectedColor">
                       <option class="text-light" value="">未選</option>
                       <option class="text-light" value="黄">黃</option>
                       <option class="text-light" value="緑">綠</option>
@@ -98,11 +114,6 @@ const submitsearch = () => {
               </ul>
             </li>
           </ul>
-
-
-          <div class="input-text" style="padding: 10px 0 0 0;">
-            <button class="card-search-button" @click="submitsearch" data-bs-dismiss="offcanvas">搜尋按鈕</button>
-          </div>
 
         </div>
       </div>

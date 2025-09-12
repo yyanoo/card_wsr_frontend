@@ -14,6 +14,7 @@ const pinia = createPinia();
 app.use(pinia);
 app.use(router);
 app.mount("#app");
+
 app.use(VueLazyLoad, {
   lazyComponent: true,
   loading: "loading.jpg",

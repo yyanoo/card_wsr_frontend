@@ -15,19 +15,18 @@ onMounted(() => {
 })
 
 watch(
-    () => [searchStore.selectedSeries, searchStore.selectedTitle, searchStore.selectedColor, searchStore.selectedLvl],
+    () => [searchStore.selectedTitle],
     async () => {
         cardStore.fetchCardsFromSearchStore()
     },
     { immediate: true } // 初次也執行一次
 )
-
 </script>
 
 <template>
     <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top"
         v-if="!cardStore.loading">
-        <div class="card-item" v-for="card in cardStore.cards" :key="card.id">
+        <div class="card-item" v-for="card in cardStore.cards">
             <div class="modal fade" :id="'modal' + card.id" :aria-labelledby="'label-modal' + card.id" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">

@@ -4,6 +4,7 @@ import { useSearchStore } from "./searchStore";
 
 export const useCardStore = defineStore("card", {
   state: () => ({
+    Allcards: [],
     cards: [],
     loading: false,
     error: null,
@@ -12,23 +13,19 @@ export const useCardStore = defineStore("card", {
     async fetchCards(params = {}) {
       this.loading = true;
       this.error = null;
-
       try {
         const response = await searchCards(params);
-        this.cards = response.data;
+        this.Allcards = response.data;
+        this.cards = this.Allcards;
         this.loading = false;
       } catch (err) {
         this.error = err.message || "取得資料失敗";
       }
     },
-
     async fetchCardsFromSearchStore() {
       const searchStore = useSearchStore();
       await this.fetchCards({
-        id: searchStore.selectedSeries,
         title: searchStore.selectedTitle,
-        color: searchStore.selectedColor,
-        lvl: searchStore.selectedLvl,
       });
     },
   },
