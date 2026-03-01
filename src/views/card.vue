@@ -2,7 +2,6 @@
 import { onMounted, watch } from "vue"
 import { useCardStore } from '../stores/card_Store'
 import { useSearchStore } from '../stores/data_Store'
-
 import Loading from '../components/Loading.vue';
 
 const cardStore = useCardStore()
