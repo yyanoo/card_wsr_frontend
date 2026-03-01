@@ -16,11 +16,14 @@ onMounted(() => {
 })
 
 watch(
-    () => [searchStore.selectedTitle],
-    async () => {
-        cardStore.fetchCardsFromSearchStore()
-    },
-    { immediate: true } // 初次也執行一次
+    () => searchStore.selectedTitle,
+    async (newTitle) => {
+        if (newTitle) {
+            cardStore.fetchCardsFromSearchStore()
+        } else {
+            loadAllCard()
+        }
+    }
 )
 watch(
     () => cardStore.loading,
