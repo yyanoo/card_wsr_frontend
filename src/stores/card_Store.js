@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 import { searchCards } from "../api/cardApi";
-import { useSearchStore } from "./searchStore";
+import { useSearchStore } from "./data_Store";
 
 export const useCardStore = defineStore("card", {
   state: () => ({
-    Allcards: [],
     cards: [],
+    Allcards: [],
     loading: false,
     error: null,
   }),

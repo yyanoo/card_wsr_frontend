@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from "vue";
-import { useSearchStore } from "../stores/searchStore";
-import { useCardStore } from "../stores/cardStore";
+import { useSearchStore } from "../stores/data_Store";
+import { useCardStore } from "../stores/card_Store";
 import { useRouter } from 'vue-router'
 
 const searchStore = useSearchStore()
@@ -17,7 +17,7 @@ const goHome = () => {
 const submitsearch = () => {
   searchStore.reset()
   searchStore.selectedTitle = inputTitle.value
-  router.push('/card_data')
+  router.push('/card')
 }
 
 function filterCards() {
@@ -39,6 +39,7 @@ watch(
   <nav class="navbar fixed-top text-bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand text-bg-dark" @click="goHome">卡片搜尋器</a>
+
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
         <div style="width: 100%; height: 100%; display: block; fill: currentcolor">
@@ -48,6 +49,7 @@ watch(
           </svg>
         </div>
       </button>
+
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header text-bg-dark">
           <h5 class="offcanvas-title">卡片搜尋器</h5>

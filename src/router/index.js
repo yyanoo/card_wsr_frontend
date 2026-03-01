@@ -1,17 +1,14 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Index from "../components/Index.vue";
-import CardData from "../components/CardData.vue";
-
 const routes = [
   {
     path: "/",
-    name: "Index",
-    component: Index,
+    name: "main",
+    component: () => import("../views/main.vue"),
   },
   {
-    path: "/card_data",
-    name: "CardData",
-    component: CardData,
+    path: "/card",
+    name: "card",
+    component: () => import("../views/card.vue"),
   },
 ];
 

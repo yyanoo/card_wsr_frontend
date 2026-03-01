@@ -1,7 +1,9 @@
 <script setup>
 import { onMounted, watch } from "vue"
-import { useCardStore } from '../stores/cardStore'
-import { useSearchStore } from '../stores/searchStore'
+import { useCardStore } from '../stores/card_Store'
+import { useSearchStore } from '../stores/data_Store'
+
+import Loading from '../components/Loading.vue';
 
 const cardStore = useCardStore()
 const searchStore = useSearchStore()
@@ -21,9 +23,20 @@ watch(
     },
     { immediate: true } // 初次也執行一次
 )
+watch(
+    () => cardStore.loading,
+    (loading) => {
+        if (loading) {
+            console.log('Loading started')
+        } else {
+            console.log('Loading finished')
+        }
+    }
+)
 </script>
 
 <template>
+    <Loading v-if="cardStore.loading" />
     <div class="d-flex flex-wrap justify-content-center align-items-center mb-3 container-padding-top"
         v-if="!cardStore.loading">
         <div class="card-item" v-for="card in cardStore.cards">

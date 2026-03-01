@@ -17,6 +17,6 @@ app.mount("#app");
 
 app.use(VueLazyLoad, {
   lazyComponent: true,
-  loading: "loading.jpg",
-  error: "error.jpg",
+  loading: "https://upload.wikimedia.org/wikipedia/en/c/c0/Wei%C3%9F_Schwarz_cardback.png",
+  error: "https://upload.wikimedia.org/wikipedia/en/c/c0/Wei%C3%9F_Schwarz_cardback.png",
 });
