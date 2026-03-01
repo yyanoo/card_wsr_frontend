@@ -12,7 +12,11 @@ const loadAllCard = () => {
 }
 
 onMounted(() => {
-    loadAllCard();
+    if (searchStore.selectedTitle) {
+        cardStore.fetchCardsFromSearchStore();
+    } else {
+        loadAllCard();
+    }
 })
 
 watch(
